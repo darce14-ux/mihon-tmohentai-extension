@@ -4,7 +4,6 @@ import okhttp3.Headers
 import okhttp3.Request
 import okhttp3.Response
 
-// --- 1. CLASES BASE DE FUENTES ---
 abstract class Source {
     abstract val id: Long
     abstract val name: String
