@@ -49,19 +49,11 @@ interface SChapter {
     }
 }
 
-// El molde para cada página/imagen dentro de un capítulo
-interface Page {
-    val index: Int
-    val url: String
-    val imageUrl: String?
-    companion object {
-        fun create(index: Int, url: String, imageUrl: String?): Page = object : Page {
-            override val index: Int = index
-            override val url: String = url
-            override val imageUrl: String? = imageUrl
-        }
-    }
-}
+open class Page(
+    val index: Int,
+    val url: String = "",
+    var imageUrl: String? = null
+)
 
 // Clases de soporte para la paginación y filtros del buscador
 data class MangasPage(val mangas: List<SManga>, val hasNextPage: Boolean)
