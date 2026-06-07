@@ -1,5 +1,6 @@
-package eu.kanade.tachiyomi
+package eu.kanade.tachiyomi.source.model
 
+// El molde para los datos de un Manga
 interface SManga {
     var url: String
     var title: String
@@ -15,6 +16,7 @@ interface SManga {
         const val ONGOING = 1
         const val COMPLETED = 2
         const val LICENSED = 3
+        // Método constructor que usa TMOHentai.kt para crear un objeto vacío y luego llenarlo
         fun create(): SManga = object : SManga {
             override var url: String = ""
             override var title: String = ""
@@ -29,6 +31,7 @@ interface SManga {
     }
 }
 
+// El molde para los capítulos
 interface SChapter {
     var url: String
     var name: String
@@ -46,6 +49,7 @@ interface SChapter {
     }
 }
 
+// El molde para cada página/imagen dentro de un capítulo
 interface Page {
     val index: Int
     val url: String
@@ -59,6 +63,7 @@ interface Page {
     }
 }
 
+// Clases de soporte para la paginación y filtros del buscador
 data class MangasPage(val mangas: List<SManga>, val hasNextPage: Boolean)
 open class Filter<T>(val name: String, val state: T)
 class FilterList(val list: List<Filter<*>>) : List<Filter<*>> by list
