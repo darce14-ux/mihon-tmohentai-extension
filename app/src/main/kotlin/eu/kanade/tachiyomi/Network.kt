@@ -1,4 +1,4 @@
-package eu.kanade.tachiyomi.network
+package eu.kanade.tachiyomi
 
 import okhttp3.Request
 import okhttp3.Headers
