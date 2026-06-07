@@ -10,9 +10,8 @@ import eu.kanade.tachiyomi.source.model.SManga
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.FilterList
 
-// Clase base para cualquier fuente de mangas
 abstract class Source {
-    abstract val id: Long
+    open val id: Long = 1L
     abstract val name: String
     abstract val lang: String
 }
