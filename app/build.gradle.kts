@@ -25,11 +25,17 @@ android {
     }
 }
 
+repositories {
+    google()
+    mavenCentral()
+}
+
 dependencies {
+    // Soporte básico de Kotlin y parseo local
     implementation("org.jsoup:jsoup:1.16.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     
-    // Librerías esenciales que necesita el código de TMOHentai para no dar errores
+    // Librerías de red y reactivas que exige TMOHentai.kt
     implementation("io.reactivex:rxjava:1.3.8")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
