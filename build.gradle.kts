@@ -2,7 +2,6 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven { url = java.net.URI("https://maven.anyvlog.org/repository/maven-public/") }
         maven { url = java.net.URI("https://jitpack.io") }
     }
     dependencies {
@@ -16,7 +15,6 @@ allprojects {
     repositories {
         mavenCentral()
         google()
-        maven { url = java.net.URI("https://maven.anyvlog.org/repository/maven-public/") }
         maven { url = java.net.URI("https://jitpack.io") }
     }
 }
