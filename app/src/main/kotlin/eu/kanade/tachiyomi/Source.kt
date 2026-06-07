@@ -1,14 +1,40 @@
 package eu.kanade.tachiyomi
 
-import rx.Observable
-import org.jsoup.nodes.Document
+// Clases base que simulan la estructura oficial de Tachiyomi/Mihon
+open class Source {
+    open val id: Long = 0L
+    open val name: String = ""
+    open val lang: String = ""
+    open val supportsLatest: Boolean = true
+}
 
-interface Source {
-    val id: Long
-    val name: String
-    val lang: String
-    
-    fun fetchMangaDetails(manga: Any): Observable<Any> = Observable.just(manga)
-    fun fetchChapterList(manga: Any): Observable<List<Any>> = Observable.just(emptyList())
-    fun fetchPageList(chapter: Any): Observable<List<Any>> = Observable.just(emptyList())
+open class HttpSource : Source() {
+    open val baseUrl: String = ""
+}
+
+// Modelos de datos mínimos que exige tu archivo TMOHentai.kt
+interface SManga {
+    var url: String
+    var title: String
+    var artist: String?
+    var author: String?
+    var description: String?
+    var genre: String?
+    var status: Int
+    var thumbnail_url: String?
+    var initialized: Boolean
+}
+
+interface SChapter {
+    var url: String
+    var name: String
+    var date_upload: Long
+    var chapter_number: Float
+    var scanlator: String?
+}
+
+interface SPage {
+    var index: Int
+    var url: String
+    var imageUrl: String?
 }
