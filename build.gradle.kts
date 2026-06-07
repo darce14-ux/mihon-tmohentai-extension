@@ -1,23 +1,18 @@
-plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlinx-serialization")
-}
-
-android {
-    compileSdk = 34
-    namespace = "eu.kanade.tachiyomi.extension.es.tmohentai"
-
-    defaultConfig {
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.2.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.9.22")
     }
 }
 
-dependencies {
-    implementation("org.jsoup:jsoup:1.16.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-    compileOnly("eu.kanade.tachiyomi:source-api:1.5")
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
