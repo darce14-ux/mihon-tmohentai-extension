@@ -19,5 +19,5 @@ android {
 dependencies {
     implementation("org.jsoup:jsoup:1.16.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-    compileOnly("eu.kanade.tachiyomi:source-api:1.5")
+    compileOnly("com.github.tachiyomiorg:source-api:main-SNAPSHOT")
 }
