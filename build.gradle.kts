@@ -2,7 +2,7 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven { url = java.net.URI("https://maven.anyvlog.org/repository/maven-public/") }
+        maven { url = java.net.URI("https://raw.githubusercontent.com/tachiyomiorg/tachiyomi-maven/master/2.0/") }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
@@ -15,6 +15,6 @@ allprojects {
     repositories {
         mavenCentral()
         google()
-        maven { url = java.net.URI("https://maven.anyvlog.org/repository/maven-public/") }
+        maven { url = java.net.URI("https://raw.githubusercontent.com/tachiyomiorg/tachiyomi-maven/master/2.0/") }
     }
 }
