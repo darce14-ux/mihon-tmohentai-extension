@@ -1,4 +1,4 @@
-package eu.kanade.tachiyomi.source.model
+package eu.kanade.tachiyomi
 
 interface SManga {
     var url: String
