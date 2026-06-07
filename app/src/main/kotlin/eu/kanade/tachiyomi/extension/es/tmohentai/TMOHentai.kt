@@ -13,6 +13,8 @@ import kotlinx.serialization.json.*
 import org.jsoup.Jsoup
 
 class TMOHentai : HttpSource() {
+    // 1. Añadido el ID obligatorio que nos pedía la clase base
+    override val id: Long = 1L 
     override val name = "TMOHentai"
     override val baseUrl = "https://tmohentai.app"
     override val lang = "es"
@@ -32,7 +34,8 @@ class TMOHentai : HttpSource() {
     override fun searchMangaParse(response: Response): MangasPage = parseMangaList(response)
 
     private fun parseMangaList(response: Response): MangasPage {
-        val document = Jsoup.parse(response.body.string())
+        // 2. Añadido '!!' para asegurar que el cuerpo no es nulo
+        val document = Jsoup.parse(response.body!!.string())
         val mangas = document.select("div.manga-card").map { element ->
             SManga.create().apply {
                 // Extrae el ID y la ruta base desde el enlace de la tarjeta
@@ -47,7 +50,8 @@ class TMOHentai : HttpSource() {
 
     // Detalles del Manga
     override fun mangaDetailsParse(response: Response): SManga {
-        val document = Jsoup.parse(response.body.string())
+        // Añadido '!!'
+        val document = Jsoup.parse(response.body!!.string())
         return SManga.create().apply {
             title = document.select("h1.manga-title").text()
             description = document.select("p.manga-description").text()
@@ -58,7 +62,8 @@ class TMOHentai : HttpSource() {
 
     // Capítulos (En este tipo de sitios, la obra completa suele ser un único capítulo)
     override fun chapterListParse(response: Response): List<SChapter> {
-        val document = Jsoup.parse(response.body.string())
+        // Añadido '!!'
+        val document = Jsoup.parse(response.body!!.string())
         val chapter = SChapter.create().apply {
             // Se usa la misma URL de la obra o el ID del lector asociado
             url = response.request.url.toString().replace(baseUrl, "")
@@ -75,7 +80,8 @@ class TMOHentai : HttpSource() {
     }
 
     override fun pageListParse(response: Response): List<Page> {
-        val json = Json.parseToJsonElement(response.body.string()).jsonObject
+        // Añadido '!!'
+        val json = Json.parseToJsonElement(response.body!!.string()).jsonObject
         val pagesArray = json["pages"]?.jsonArray ?: throw Exception("Formato inválido")
         
         return pagesArray.mapIndexed { index, element ->
